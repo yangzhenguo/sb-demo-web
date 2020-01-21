@@ -1,0 +1,4 @@
+.foot_global .about li {
+    float: none;
+    display: inline-block;
+}

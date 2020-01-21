@@ -10,7 +10,7 @@
     <title th:text="${title}">页面Title</title>
 
     <!-- Bootstrap -->
-    <link href="../static/bootstrap/3.3.6/css/bootstrap.min.css" th:href="@{/bootstrap/3.3.6/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="../static/lib/bootstrap/3.3.6/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,11 +20,19 @@
     <![endif]-->
 </head>
 <body>
-<h1 th:text="${welcome}">Hello H5</h1>
+    <div class="container">
+        <h1 th:text="${welcome}" class="text-center text-primary">Hello H5</h1>
 
+        <ul class="list-group">
+            <a href="/" class="list-group-item" th:each="user: ${users}" th:title="${user.id}" th:href="@{/{id}(id=${user.id})}">
+                <span class="badge" th:text="${user.age}">23</span>
+                <span th:text="${user.name + '(' + user.id + ')'}">ab</span>
+            </a>
+        </ul>
+    </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../static/lib/jquery/1.9.1/js/jquery.min.js" th:src="@{/webjars/jquery/2.2.4/jquery.min.js}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../static/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+<script src="../static/lib/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
 </body>
 </html>
